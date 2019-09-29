@@ -17,6 +17,7 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.persistence.EntityManagerFactory;
 import javax.print.attribute.standard.JobName;
@@ -26,6 +27,7 @@ import java.util.Map;
 @Slf4j
 @AllArgsConstructor
 @Configuration
+@ConditionalOnProperty(name="job.name", havingValue = SimpleJobConfiguration.JOB_NAME)
 public class SimpleJobConfiguration {
     public static final String JOB_NAME = "customerCopyJob";
     private static final String STEP_NAME = "customerCopyStep";
